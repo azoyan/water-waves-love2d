@@ -31,13 +31,13 @@ end
 
 ![Video](https://raw.githubusercontent.com/azoyan/water-waves-love2d/master/water-example.mp4)
 
-Also you can create water with custom tension, dampening and spread parameters:
+You can create water with custom tension, dampening and spread parameters:
  ```Lua
  water = Water(x, y, width, height, color, tension,dampening, spread)
  ```
 ![GIF](https://raw.githubusercontent.com/azoyan/water-waves-love2d/master/customParameters.gif)
 
-And reset to it:
+Reset parameters:
 ```Lua
   water:resetTension(0.06)    -- reset to value 0.06
   water:resetDampening()      -- reset to default (0.025)
