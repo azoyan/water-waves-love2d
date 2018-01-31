@@ -1,7 +1,7 @@
 # water-waves-love2d
 It is porting and implementation for love2d of water waves from this tutorial https://gamedevelopment.tutsplus.com/tutorials/make-a-splash-with-dynamic-2d-water-effects--gamedev-236
 
-usage:
+Usage:
 ```Lua
 local Water = require "water"
 
@@ -25,5 +25,5 @@ function love.draw()
   water:draw()
 end
 ```
+![Video](https://raw.githubusercontent.com/azoyan/water-waves-love2d/master/water-example.mp4)
 
-![Alt Text](https://raw.githubusercontent.com/azoyan/water-waves-love2d/master/water-example.mp4)
