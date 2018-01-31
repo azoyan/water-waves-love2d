@@ -33,7 +33,9 @@ end
 
 You can create water with custom tension, dampening and spread parameters:
  ```Lua
- water = Water(x, y, width, height, color, tension,dampening, spread)
+   local x, y, width, height, color = 100, 150, 500, 200, { 0, 130, 200, 255 }
+   local tension, dampening, spread  = 0.015, 0.001, 0.1
+   water = Water(x, y, width, height, color, tension,dampening, spread)
  ```
 ![GIF](https://raw.githubusercontent.com/azoyan/water-waves-love2d/master/customParameters.gif)
 
