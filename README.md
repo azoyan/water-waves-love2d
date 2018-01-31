@@ -25,5 +25,7 @@ function love.draw()
   water:draw()
 end
 ```
+![GIF](https://raw.githubusercontent.com/azoyan/water-waves-love2d/master/water-example.gif)
+
 ![Video](https://raw.githubusercontent.com/azoyan/water-waves-love2d/master/water-example.mp4)
 
