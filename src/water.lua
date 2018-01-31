@@ -31,7 +31,7 @@ function Water:_new(x, y, width, height, color, tension, dampening, spread)
   end
 end
 
-function Water:updateWaterColumn(index, Dampening, Tension)
+local function updateWaterColumn(self, index, Dampening, Tension)
   local waterColumn = self.columns[index]
   local x = waterColumn.targetHeight - waterColumn.height;
   waterColumn.speed  = waterColumn.speed + (self.tension * x - waterColumn.speed * self.dampening)
@@ -42,6 +42,27 @@ function Water:updateWaterColumn(index, Dampening, Tension)
     return { height = self.height, targetHeight = self.height, speed = 0 }
   end
 
+function Water:resetTension(tension)
+  self.tension = tension or 0.025
+end
+
+function Water:resetDampening(dampening)
+  self.dampening = dampening or 0.025
+end
+
+function Water:resetSpread(spread)
+  self.spread = spread or 0.3
+end
+
+function Water:reset(tension, dampening, spread)
+  self:resetTension(tension)
+  self:resetDampening(dampening)
+  self:resetSpread(spread)
+end
+
+function Water:setSpread(spread)
+  self.spread = spread or 0.3
+end
 
 function Water:splash(x, speed)
   if (x > self.x) and (x < (self.x + #self.columns)) then
@@ -50,12 +71,12 @@ function Water:splash(x, speed)
 end
 
 function Water:isTouched(x, y, dx, dy)
-  return math.abs(y - self.y) < dy and ((x > self.x) and (x < (self.x + #self.columns)))
+  return math.abs(y - self.y) < math.abs(dy) and ((x > self.x) and (x < (self.x + #self.columns)))
 end
 
 function Water:update(dt)
   for i = 1, self.columnsLength do
-    self:updateWaterColumn(i, self.dampening, self.tension);
+    updateWaterColumn(self, i, self.dampening, self.tension);
   end
 
   local lDeltas = {}
